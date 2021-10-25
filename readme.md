@@ -59,7 +59,7 @@ Creates a new Version 4 (random) [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) 
 
 ## Benchmarks
 
-> Running on Node.js v12.18.4
+> Running on Node.js v17.0.1
 
 ```
 Validation:
@@ -68,13 +68,23 @@ Validation:
   ✔ uuid/v4
   ✔ @lukeed/uuid
   ✔ @lukeed/uuid/secure
+  ✔ uuid-quick
+  ✔ hyperid
+  ✔ mongoid
+  ✔ KSUID
+  ✔ ulidx
 
 Benchmark:
-  String.replace(Math.random)  x    381,358 ops/sec ±0.31% (93 runs sampled)
-  String.replace(crypto)       x     15,842 ops/sec ±1.16% (86 runs sampled)
-  uuid/v4                      x  1,259,600 ops/sec ±0.45% (91 runs sampled)
-  @lukeed/uuid                 x  6,384,840 ops/sec ±0.22% (95 runs sampled)
-  @lukeed/uuid/secure          x  5,439,096 ops/sec ±0.23% (98 runs sampled)
+  String.replace(Math.random)  x 364,566 ops/sec ±0.51% (93 runs sampled)
+  String.replace(crypto)       x 12,898 ops/sec ±0.53% (91 runs sampled)
+  uuid/v4                      x 1,342,666 ops/sec ±0.21% (96 runs sampled)
+  @lukeed/uuid                 x 6,397,525 ops/sec ±0.49% (94 runs sampled)
+  @lukeed/uuid/secure          x 6,290,642 ops/sec ±0.81% (95 runs sampled)
+  uuid-quick                   x 6,441,972 ops/sec ±0.47% (95 runs sampled)   # in some runs slower than luuked/uuid
+  hyperid                      x 16,887,066 ops/sec ±0.73% (96 runs sampled)  # fastest, non-sequential but w/ random running number padding
+  mongoid                      x 19,163,326 ops/sec ±20.80% (71 runs sampled) # fastest, sequential
+  KSUID                        x 100,178 ops/sec ±0.67% (95 runs sampled)
+  ulidx                        x 21,173 ops/sec ±1.99% (80 runs sampled)
 ```
 
 > Running on Chrome v85.0.4183.121
