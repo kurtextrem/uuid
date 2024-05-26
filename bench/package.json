@@ -9,5 +9,11 @@
     "benchmark": "2.1.4",
     "rollup": "2.32.1",
     "uuid": "8.3.1"
+  },
+  "dependencies": {
+    "@napi-rs/uuid": "^0.2.1",
+    "hexoid": "^1.0.0",
+    "napi-nanoid": "^0.0.1-dev.13",
+    "uid": "^2.0.0"
   }
 }

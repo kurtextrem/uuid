@@ -85,6 +85,38 @@ Benchmark:
   mongoid                      x 19,163,326 ops/sec ±20.80% (71 runs sampled) # fastest, sequential
   KSUID                        x 100,178 ops/sec ±0.67% (95 runs sampled)
   ulidx                        x 21,173 ops/sec ±1.99% (80 runs sampled)
+
+Validation:
+  ✔ crypto.randomUUID
+  ✔ @lukeed/uuid
+  ✔ @lukeed/uuid/secure
+  ✔ @napi-rs/uuid
+  ✔ uuid-quick
+  ✔ hyperid
+  ✔ mongoid
+  ✔ KSUID
+  ✔ ulidx
+  ✔ napi-nanoid
+  ✔ uid
+  ✔ uid/secure
+  ✔ uid/single
+  ✔ hexoid
+
+Benchmark:
+  crypto.randomUUID            x 20,520,775 ops/sec ±1.29% (86 runs sampled)
+  @lukeed/uuid                 x 6,594,182 ops/sec ±0.59% (93 runs sampled)
+  @lukeed/uuid/secure          x 6,402,447 ops/sec ±0.31% (94 runs sampled)
+  @napi-rs/uuid                x 3,843,522 ops/sec ±0.36% (95 runs sampled)
+  uuid-quick                   x 6,986,841 ops/sec ±0.67% (97 runs sampled)
+  hyperid                      x 14,923,670 ops/sec ±1.08% (90 runs sampled)  # fastest, non-sequential but w/ random running number padding
+  mongoid                      x 18,498,012 ops/sec ±19.21% (71 runs sampled) # fastest, sequential
+  KSUID                        x 98,264 ops/sec ±0.34% (96 runs sampled)      # k-sortable
+  ulidx                        x 21,158 ops/sec ±1.99% (84 runs sampled)      # lex sortable
+  napi-nanoid                  x 4,285,115 ops/sec ±0.24% (95 runs sampled)
+  uid                          x 18,391,465 ops/sec ±0.25% (95 runs sampled)
+  uid/secure                   x 10,892,492 ops/sec ±0.45% (96 runs sampled)
+  uid/single                   x 4,898,395 ops/sec ±0.29% (96 runs sampled)
+  hexoid                       x 53,970,382 ops/sec ±0.28% (96 runs sampled)
 ```
 
 > Running on Chrome v85.0.4183.121

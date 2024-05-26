@@ -1,7 +1,7 @@
 const assert = require('uvu/assert');
 const { Suite } = require('benchmark');
-const { randomBytes } = require('crypto');
-const isUUID = require('is-uuid');
+const { randomBytes, randomUUID } = require('crypto');
+//const isUUID = require('is-uuid');
 
 // https://stackoverflow.com/a/2117523
 function replace_random() {
@@ -17,19 +17,26 @@ function replace_crypto() {
 	});
 }
 
-const KSUID = require('ksuid');
+const KSUID = require('ksuid')
 
 const contenders = {
-	'String.replace(Math.random)': replace_random,
-	'String.replace(crypto)': replace_crypto,
-	'uuid/v4': require('uuid').v4,
-	'@lukeed/uuid': require('../dist').v4,
-	'@lukeed/uuid/secure': require('../secure').v4,
+	'crypto.randomUUID': randomUUID,
+	//'String.replace(Math.random)': replace_random,
+	//'String.replace(crypto)': replace_crypto,
+	//'uuid/v4': require('uuid').v4,
+	//'@lukeed/uuid': require('../dist').v4,
+	//'@lukeed/uuid/secure': require('../secure').v4,
+	//'@napi-rs/uuid': require('@napi-rs/uuid').v4,
+	//'uuid-quick': require('uuid-quick'),
 	hyperid: require('hyperid')(),
-	'uuid-quick': require('uuid-quick'),
 	'mongoid': require('mongoid-js'),
 	'KSUID': () => KSUID.randomSync().string,
 	'ulidx': require('ulidx').ulid,
+	'napi-nanoid': require('napi-nanoid').nanoid,
+	'uid': require('uid').uid,
+	'uid/secure': require('uid/secure').uid,
+	'uid/single': require('uid/single').uid,
+	'hexoid': require('hexoid')(),
 };
 
 console.log('Validation: ');
